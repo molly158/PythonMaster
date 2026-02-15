@@ -4,7 +4,7 @@ class Student:
     age=None
 
     #成员方法（函数在类里是一个方法
-    def say_hi(self):
+    def say_hi(self): #self:区别stu1 et stu2
         print(f"bonjour je m appelle {self.name} et j ai {self.age} ans.")
 #创建对象
 stu_1=Student()
