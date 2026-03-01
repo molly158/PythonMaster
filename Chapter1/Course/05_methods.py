@@ -6,7 +6,7 @@ class Student:
         self.name=name
         self.age=age
 
-    #修改对象创建后的打印
+    #修改对象创建后的打印(没有这个打印前print的就是：内存地址）
     def __str__(self):
         return f'name={self.name}, age={self.age}'
     #<:lt, >:gt
