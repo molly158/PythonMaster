@@ -7,7 +7,7 @@ class Phone:
 #1. 继承： class 类（副类）：
 #           新类的属性和方法
 #继承会把副类的成员变量和方法都拿过来，都可以直接用
-class Phone2026(Phone):
+class Phone2026(Phone): #class 类名（父类1，2，...）
     face_id=True
 
     def call_by_5g(self):
