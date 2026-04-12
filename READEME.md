@@ -260,3 +260,14 @@ my_phone.call_by_5g()
   make_noise(cat)
   ```
 
+MySQL is configured to only allow connections from localhost by default
+
+To connect run:
+
+​    mysql -u root -p
+
+To start mysql now and restart at login:
+
+  brew services start mysql
+
+show databases; (展示数据库)
