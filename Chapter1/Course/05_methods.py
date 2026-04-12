@@ -2,6 +2,13 @@ class Student:
     name=None
     age=None
 
+    #on definit les variables de facon simples et pratiques
+    # sans init on doit faire:
+    # ma_voiture.marque = "Tesla"
+    # ma_voiture.couleur = "Rouge"
+
+    #avc init:
+    #voiture1 = Voiture("Tesla", "Rouge")
     def __init__(self, name, age):
         self.name=name
         self.age=age
