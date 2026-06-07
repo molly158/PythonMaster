@@ -1,5 +1,6 @@
 from pymysql import Connection
 
+#创建连接
 conn=Connection(host="localhost",#ip地址 （nom d hote ou adressen IP)
                 port=3306, #port 端口
                 user="root",#登陆用户
