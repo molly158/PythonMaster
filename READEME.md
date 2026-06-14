@@ -49,7 +49,8 @@
   student=Student()
   student.name="alex"
   student.age=18
-  student.say_hi()
+  student.say_hi() # bonjour a ts j m appelle {student.name} et j ai {student.age} ans.
+  #==> bonjour a ts j m appelle alex et j ai 18 ans.
   student.say_hi2("yes")
   ```
 
@@ -58,7 +59,7 @@
 
 * 当创建对象的时候会自动执行
 
-* 创建对象的时候穿参数，会自动传递到\_init_构造方法
+* 创建对象的时候传参数，会自动传递到\_init_构造方法
 
   ```python
   class Student:
@@ -189,6 +190,7 @@ _eq_ 两个类进行相等比较
   ```
 
 * 重写(override)
+
   * 重写父类的属性或成员方法
 
 ```python
