@@ -17,7 +17,7 @@ class TextFileReader(FileReader):
         for line in f.readlines():
             line=line.strip()
             data_list=line.split(',')
-            record=Record(data_list[0],data_list[1],data_list[2],data_list[3])
+            record=Record(data_list[0],data_list[1],int(data_list[2]),data_list[3])
             record_list.append(record)
         f.close()
         return record_list
