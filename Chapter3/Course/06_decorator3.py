@@ -13,5 +13,7 @@ def sleep():
     import time
     print("sleeping...")
     time.sleep(random.randint(1,5))
-
 sleep()
+
+# python 自动把@outer 转换成： sleep=outer(sleep)
+#需要装饰器：不需要改原函数

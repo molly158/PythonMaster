@@ -11,9 +11,10 @@ fn=outer(10)
 # 此时 num1=num2=10
 #执行num1+=num2 ==> num1=20
 
-#因为有nonlocal 修改的是闭包里的num1
+#因为有nonlocal 修改的是闭包里的num1 : outer(10)==>outer(20)
 #2. 没有nonlocal 那么fn(10) 一直都是一样的数值 做不到余额相加
 fn(10)
 fn(10)
 
 #我们创建了一个带状态的函数，num1会一直保存在函数内部，并随着调用不断更新
+

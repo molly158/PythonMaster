@@ -2,7 +2,7 @@
 
 def outer(logo):
     def inner(msg):
-        print(f"<logo>{msg}<logo>")
+        print(f"<{logo}>{msg}<{logo}>")
     return inner
 fn=outer("SCEF Formation")
 fn("Hello")
