@@ -34,6 +34,7 @@ print(result5)
 #+：匹配前一个规则的字符出现1至无数次
 # [\w-]+ : 表示字母，数字，下划线，还可以有-，而且至少一个字符
 #?: ==> 非捕获组
+#(?:\.[\w-]+) => 可以出现也可以不出现 yixue.liang@dauphine.eu avc "."
 r3=r'^[\w-]+(?:\.[\w-]+)*@(?:qq|163|gmail)(?:\.[\w-]+)+$'
 s3='sgsgkxkx@gmail.com'
 result5=re.findall(r3,s3)
