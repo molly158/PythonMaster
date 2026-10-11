@@ -273,3 +273,112 @@ To start mysql now and restart at login:
   brew services start mysql
 
 show databases; (展示数据库)
+
+
+
+## Chapter 2 SQL
+
+## Chapter 3 Python 高级
+
+## Chapter 4 Git
+
+### 1.版本控制器
+
++ 集中式(SVN): 版本库集中存放在中央服务器上。必须联网才能工作。
++  分布式(Git)：每个人的电脑上都是一个完整的版本库，包含全部历史。工作时不需要联网。
+
+### 2. Git的历史
+
++ Git 是一个开源的分布式版本控制系统，由Linus Torvalds为管理Linus内核开发而创建的。
+
+### 3.Git工作流程
+
++ 工作区：worksplace 修改代码的d地方
++ 暂存区：Index/Stage, 在 `.git`目录中，准备提交的修改清单(`… 再加一个，`)
++ 本地仓库：Repository 在`.git`目录中，所有已经提交版本的历史
++ 远程仓库：Remote 在服务器上(Github，Gitee)，与团队共享的交换点
+
+七个命令：
+
++ `clone`: 从远程仓库中克隆代码到本地仓库
+
++ `chekout`: 从本地仓库检出一个分支到工作区进行修订 (切换分支)
+
++ `add`： 提交前先把修改放进暂存区
+
++ `commit `：把暂存区提交到本地仓库。本地仓库保存每一个历史版本
+
++ `fetch`：把远程仓库的更新抓取到本地仓库，不做任何合并，平时用得较少
+
++ `pull`: 从远程仓库拉到本地并自动合并到当前分支。`pull`=`fetch`+`merge`
+
++ `push`: 修改完成 需要和团队共享时，把代码推送到远程仓库
+
+  
+
+### 4.基础命令
+
++ `git init`: 获取本地仓库
+
++ `touch filename.format `: commande ds le Terminal permet de creer un ficher
+
++ `git add 文件名`: 把文件的修改加入暂存区
+
++ `git add .`： 把所有修改加入暂存区
+
++ ` git commit -m "注释内容"`: 把暂存区提交到本地仓库的当前分支
+
++ `git log`： 查看提交记录
+
++ ` git reset —hard commitID`: 版本回退(切换到指定版本)
+
+  ``` python
+  (base) yixueliang@YixuesMacBookAir test % git log
+  commit 4a3131aa6f74c837f3edaf0e31ff2fd1fe06d713 (HEAD -> main)
+  Author: yixueliang <yixueliang0302@gmail.com>
+  Date:   Sun Oct 11 10:42:59 2026 +0200
+  
+      update file01
+  
+  commit 23ea68024365adf8c13c01dfaf9fc4685265ee67
+  Author: yixueliang <yixueliang0302@gmail.com>
+  Date:   Sun Oct 11 10:39:11 2026 +0200
+  
+      commit 001
+      
+  (base) yixueliang@YixuesMacBookAir test % git reset --hard 23ea68024365adf8c13c01dfaf9fc4685265ee67
+  
+  HEAD is now at 23ea680 commit 001
+  ```
+
++ `git reflog`: 查看已被删除的提交记录
+
+  ``` python
+  (base) yixueliang@YixuesMacBookAir test % git reflog
+  23ea680 (HEAD -> main) HEAD@{0}: reset: moving to 23ea68024365adf8c13c01dfaf9fc4685265ee67
+  4a3131a HEAD@{1}: commit: update file01
+  23ea680 (HEAD -> main) HEAD@{2}: commit (initial): commit 001
+  ```
+
++ ` git status`: 查看修改的状态(暂存区 工作区)
+
+  ``` python
+  (base) yixueliang@YixuesMacBookAir test % git status
+  On branch main
+  nothing to commit, working tree clean
+  ```
+
++ `git branch`: 查看分支
+
++ `git checkout namebranch`: 切换到namebranch分支
+
+
+
+
+
+
+
+
+
+
+
