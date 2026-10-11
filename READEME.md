@@ -322,15 +322,15 @@ show databases; (展示数据库)
 
 + `touch filename.format `: commande ds le Terminal permet de creer un ficher
 
-+ `git add 文件名`: 把文件的修改加入暂存区
++ `git add 文件名`: **把文件的修改加入暂存区**
 
 + `git add .`： 把所有修改加入暂存区
 
-+ ` git commit -m "注释内容"`: 把暂存区提交到本地仓库的当前分支
++ ` git commit -m "注释内容"`: **把暂存区提交到本地仓库的当前分支**
 
 + `git log`： 查看提交记录
 
-+ ` git reset —hard commitID`: 版本回退(切换到指定版本)
++ ` git reset —hard commitID`: **版本回退**(切换到指定版本)
 
   ``` python
   (base) yixueliang@YixuesMacBookAir test % git log
@@ -368,11 +368,28 @@ show databases; (展示数据库)
   nothing to commit, working tree clean
   ```
 
-+ `git branch`: 查看分支
++ `git branch`: **查看分支**
 
-+ `git checkout namebranch`: 切换到namebranch分支
+  + 每一个分支都有文件，那么切换到某一个分支的时候将会只显示这个分支里面的所有的文件，而其他分支的文件都会被"隐藏"，就看不见了
+  + 那么此时merge合并分支的话，所有的文件都会看得见了
 
++ `git checkout namebranch`: **切换**到namebranch**分支**
 
++ `git merge 要合并的分支的名字`: **合并分支**到主分支(main)
+
+  ``` python
+  (base) yixueliang@YixuesMacBookAir test % git merge dev01  
+  Updating 23ea680..5079f42
+  Fast-forward
+   file02.txt | 0
+   1 file changed, 0 insertions(+), 0 deletions(-)
+   create mode 100644 file02.txt
+   
+  (base) yixueliang@YixuesMacBookAir test % git checkout main
+  Already on 'main'
+  ```
+
+  
 
 
 
