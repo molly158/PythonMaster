@@ -362,7 +362,7 @@ show databases; (展示数据库)
 
 + ` git status`: 查看修改的状态(暂存区 工作区)
 
-  ``` python
+  ``` bash
   (base) yixueliang@YixuesMacBookAir test % git status
   On branch main
   nothing to commit, working tree clean
@@ -377,7 +377,7 @@ show databases; (展示数据库)
 
 + `git merge 要合并的分支的名字`: **合并分支**到主分支(main)
 
-  ``` python
+  ``` bash
   (base) yixueliang@YixuesMacBookAir test % git merge dev01  
   Updating 23ea680..5079f42
   Fast-forward
@@ -389,7 +389,151 @@ show databases; (展示数据库)
   Already on 'main'
   ```
 
+  ### 5.基础操作
+
+  ``` bash
+  # 初始化 git 仓库
+  git init
   
+  # 创建文件 file01.txt (touch file01.txt) 然后
+  git add .
+  git commit -m "commit 001"
+  # 看到提交的记录
+  git log
+  
+  # 把 file01.txt 内容改为 count=1 然后：
+  git add .
+  git commit -m "update file01"
+  # 看到两条提交的记录
+  git log
+  
+  # 将最后一次修改还原：
+  # 用 git log 找到你要还原的地方提交的commitID,然后：
+  git reset --hard commitID
+  
+  #这时可以看到文件已恢复为空
+  cat file01.txt #(看看有没有空)
+  ```
+
+### 6. 分支
+
+#### 6.1分支命令
+
+- `git branch`： **查看本地分支**
+- `git branch 分支名`: 创建本地分支
+- `git checkout 分支名`: 切换分支
+- `git checkout -b 分支名`: **创建并切换到新分支**
+- `git merge 分支名`: **把某分支合并到当前分支**
+- `git branch -d 分支名`: 删除分支(做各种检查)
+
+#### 6.2 分支操作
+
+```bash
+# 创建分支 dev01 并且切换过去
+git branch dev01
+git checkout dev01
+# git checkout -b dev01
+
+# 创建文件 file02.txt (touch file01.txt) 然后
+git add .
+git commit -m "add file02 on dev"
+# 看到提交的记录
+git log
+
+# 切回master合并dev01
+git checkout main
+git merge dev01
+git log
+
+# 删除dev01分支
+git branch -d dev01
+git log
+```
+
+### 7. 远程仓库
+
+#### 7.1常用的托管服务
+
+`github`: 面向开源以及私有项目的托管平台，只支持`Git`作为版本库格式，故名`Github`
+
+`Gitlab`： 开源的仓库管理系统，一般用于在企业，学校等内部网络搭建`Git`私服
+
+#### 7.2 注册github 并创建远程仓库
+
+- `https://github.com`： 注册账号，新建仓库
+- 输入仓库名称(`git_test`)，填写仓库介绍
+- 选择**私有**或**公开**
+- 点击**创建**
+
+#### 7.3 配置ssh公钥
+
+配置ssh公钥后，Github就能识别你，不用每次输入密码
+
+```bash
+# 1.生成 ssh 公钥 (一路回车)
+ssh-keygen -t rsa
+#如果公钥已经存在，会自动覆盖
+
+# 2.查看并复制公钥
+cat ~/.ssh/id_rsa.pub
+
+# 3.在Github上，头像->设置SSH and GPG keys ， 粘贴公钥，起个标题，点击确定
+# 4.验证是否匹配成功
+ssh -T git@github.com
+
+# Hi molly158! You've successfully authenticated, but GitHub does not provide shell access.
+
+```
+
+#### 7.4 远程仓库操作
+
+```bash
+# 1. 将本地仓库推送到远程仓库
+# [test]
+cd test
+# 给本地仓库登记一个远程仓库地址 并且起名叫origin
+git remote add origin git@github.com:molly158/git_test.git
+
+# git push -u origin main -f 
+# 把本地的main分支推送到origin的远程仓库
+# --set-upstream (简写-u)会把本地main和远程的main关联起来
+# 之后推送或拉取，只需要输入git pusn/git pull,不用每次都写origin main
+git push --set-upstream origin main
+
+# 2. 将远程仓库clone到本地 git_test
+git clone git@github.com:molly158/git_test.git
+
+# 3. 将本地修改推送到远程仓库
+# [git_test]
+git add .
+git commit -m "add file03"
+git push origin main
+
+# 4. 将远程仓库的修改更新到本地
+git pull
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
